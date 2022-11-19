@@ -13,8 +13,5 @@ router.post('/register', userControllers.registerUser);
 // Login endpoint
 router.post('/login', userControllers.loginUser);
 
-// Get profile endpoint
-router.get('/profile', userControllers.userProfile);
-
 // Exporting router
 module.exports = router;
