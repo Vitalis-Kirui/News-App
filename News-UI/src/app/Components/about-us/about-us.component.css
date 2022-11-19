@@ -1,0 +1,19 @@
+/* About us section styles */
+.container-fluid{
+    background: url('/assets/images/about/about.jpg') fixed 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: auto;
+}
+
+h2{
+    color: green;
+    text-decoration: underline green 2px;
+    font-weight: 600;
+}
+
+.content{
+    background-color: rgb(245, 242, 238);
+    opacity: 0.9;
+    padding: 3%;
+}
