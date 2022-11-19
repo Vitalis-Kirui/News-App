@@ -1,0 +1,10 @@
+.error404{
+    padding: 3%;
+    /* box-shadow: 1px 1px 10px 1px red; */
+}
+
+hr{
+    width: 50%;
+    margin: auto;
+    padding-bottom: 2%;
+}
