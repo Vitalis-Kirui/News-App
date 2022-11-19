@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
+import { forbiddenValidator } from 'src/app/Validators/forbidden-words';
+import { passwordMatchValidator } from 'src/app/Validators/password-match';
 
 @Component({
   selector: 'app-register',
