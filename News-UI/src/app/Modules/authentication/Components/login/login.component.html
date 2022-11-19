@@ -1,1 +1,52 @@
-<p>login works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 my-5 mx-auto login">
+
+            <div class="text-center">
+                <h2>Login</h2>
+                <hr>
+            </div>
+
+            <!-- Login form -->
+            <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+
+                <!-- Username -->
+                <div class="form-group">
+                    <label for="" class="mb-1 mt-3 ">Username</label>
+                    <input type="text" class="form-control" formControlName="username" 
+                    [class.is-invalid]="username?.invalid && username?.dirty">
+                </div>
+
+                <!-- Username error messages -->
+                <div class="text-danger" *ngIf="username?.invalid && username?.dirty">
+                    <small *ngIf="username?.errors?.['required']">Username is required</small>
+                    <!-- <small *ngIf="username?.errors?.['minlength']">Username must have at least 3 characters</small> -->
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="" class="mb-1 mt-3 ">Password</label>
+                    <input type="password" class=" form-control" formControlName="password"
+                    [class.is-invalid]="password?.invalid && password?.dirty">
+                </div>
+
+                <!-- Password error messages -->
+                <div class="text-danger" *ngIf="password?.invalid && password?.dirty">
+                    <small *ngIf="password?.errors?.['required']">Password is required</small>
+                </div>
+
+                <!-- submit button -->
+                <button class="btn btn-primary m-2 mt-3" type="submit" [disabled]="loginForm.invalid">Login</button>
+
+            </form>
+
+
+            <!-- Navigating to register if user do not have an account -->
+            <div class="text-center pt-4 text-success">
+                <p><strong>Don't have an account? Create an account</strong></p>
+                <button class="btn btn-primary m-3" type="button" (click)="register()">Register</button>
+            </div>
+
+        </div>
+    </div>
+</div>
