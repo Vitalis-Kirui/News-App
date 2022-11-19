@@ -1,0 +1,29 @@
+button{
+    font-size: 18px;
+}
+
+label , h2, hr{
+    color: green;
+}
+
+hr{
+    /* border: 1px solid green; */
+    width: 75%;
+    margin: auto;
+    padding-bottom: 10px;
+}
+
+.form-check-label{
+    padding-left: 5px;
+}
+
+.form{
+    box-shadow: 0px 0px 10px 0px grey;
+    padding: 3%;
+}
+
+/* After registration */
+.afterRegistration{
+    box-shadow: 0px 0px 10px 0px green;
+    padding: 3%;
+}

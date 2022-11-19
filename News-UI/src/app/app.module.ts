@@ -7,6 +7,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { AboutUsComponent } from './Components/about-us/about-us.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { Error404Component } from './Components/error404/error404.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { Error404Component } from './Components/error404/error404.component';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],
