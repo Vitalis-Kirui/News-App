@@ -1,1 +1,140 @@
-<p>register works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 my-5 mx-auto form" *ngIf="!registrationSuccess">
+
+            <!-- Registration form -->
+            <h2 class="text-center"><strong>Create account</strong></h2>
+            <hr class="mx-auto">
+
+            <form [formGroup]="registrationForm" (ngSubmit)="submitForm()" >
+
+                <!-- First name -->
+                <div class="form-group">
+                    <label class="mb-1 mt-3" for=""><strong>First Name</strong></label>
+                    <input type="text" class="form-control" formControlName="firstname"
+                    [class.is-invalid]="firstname?.invalid && firstname?.dirty">
+                </div>
+
+                <!-- First name error messages -->
+                <div class="text-danger" *ngIf="firstname?.invalid && firstname?.dirty">
+                    <small *ngIf="firstname?.errors?.['required']">First name is required</small>
+                    <small *ngIf="firstname?.errors?.['forbiddenTerms']">{{firstname?.errors?.['forbiddenTerms'].value}} is not allowed first name</small>
+                    <small *ngIf="firstname?.errors?.['minlength']">First name must have a least 3 characters</small>
+                </div>
+
+                <!-- Last name -->
+                <div class="form-group">
+                    <label for="" class="mb-1 mt-3"><strong>Last Name</strong></label>
+                    <input type="text" class="form-control" formControlName="lastname"
+                    [class.is-invalid]="lastname?.invalid && lastname?.dirty">
+                </div>
+
+                <!-- Last name error messages -->
+                <div class="text-danger" *ngIf="lastname?.invalid && lastname?.dirty">
+                    <small *ngIf="lastname?.errors?.['required']">Last name is required</small>
+                    <small *ngIf="lastname?.errors?.['forbiddenTerms']">{{lastname?.errors?.['forbiddenTerms'].value}} is not allowed last name</small>
+                    <small *ngIf="lastname?.errors?.['minlength']">Last name must have a least 3 characters</small>
+                </div>
+
+                <!-- Username -->
+                <div class="form-group">
+                    <label for="" class="mb-1 mt-3"><strong>Username</strong></label>
+                    <input type="text" class="form-control" formControlName="username"
+                    [class.is-invalid]="username?.invalid && username?.dirty">
+                </div>
+
+                <!-- Username error messages -->
+                <div class="text-danger" *ngIf="username?.invalid && username?.dirty">
+                    <small *ngIf="username?.errors?.['required']">Username is required</small>
+                    <small *ngIf="username?.errors?.['forbiddenTerms']">{{username?.errors?.['forbiddenTerms'].value}} is not allowed username</small>
+                    <small *ngIf="username?.errors?.['minlength']">Username must have a least 3 characters</small>
+                </div>
+
+                <!-- already registered error message -->
+                <small class="text-danger" *ngIf="registered">Username already exist</small>
+
+                <!-- Phone number -->
+                <div class="form-group">
+                    <label for="" class="mb-1 mt-3"><strong>Phone Number</strong></label>
+                    <input type="number" class="form-control" formControlName="phonenumber" 
+                    [class.is-invalid]="phonenumber?.invalid && phonenumber?.dirty">
+                </div>
+
+                <!-- Phone number error messages -->
+                <div class="text-danger" *ngIf="phonenumber?.invalid && phonenumber?.dirty">
+                    <small *ngIf="phonenumber?.errors?.['required']">Phone number is required</small>
+                    <small *ngIf="phonenumber?.errors?.['minlength']">Phone number must have a least 10 digits</small>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group mb-1 mt-3">
+                    <label for=""><strong>Email</strong></label>
+                    <input type="email" class="form-control" formControlName="email" 
+                    [class.is-invalid]="email?.invalid && email?.dirty">
+                    </div>
+
+                    <!-- Email error messages -->
+                    <div class="text-danger" *ngIf="email?.invalid && email?.dirty">
+                        <small *ngIf="email?.errors?.['required']"> Email address is required</small>
+                        <small *ngIf="email?.errors?.['pattern']"> Invalid email address</small>
+                    </div>
+
+                    <!-- Directive whenever user subscribe to promotional messages -->
+                    <small *ngIf="email?.untouched && subscribe?.dirty " class="text-success">You are subscribing to promotional offers,  enter your email address.</small>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="" class="mb-1 mt-3"><strong>Password</strong></label>
+                    <input type="password" class="form-control" formControlName="password" 
+                    [class.is-invalid]="password?.invalid && password?.dirty">
+                </div>
+
+                <!-- Password messages -->
+                <div class="text-danger" *ngIf="password?.invalid && password?.dirty">
+                    <small *ngIf="password?.errors?.['required']">Password is required</small>
+                    <small *ngIf="password?.errors?.['minlength']">Password must have a least 6 digits</small>
+                </div>
+
+                <!-- Confirm password -->
+                <div class="form-group">
+                    <label for="" class="mb-1 mt-3"><strong>Confirm Password</strong></label>
+                    <input type="password" class="form-control" formControlName="confirmpassword"
+                    [class.is-invalid]="registrationForm.errors?.['passwordMismatch']">
+                </div>
+
+                <!-- Confirm password error message -->
+                <div class="text-danger">
+                    <small *ngIf="registrationForm.errors?.['passwordMismatch']">Password do not match</small>
+                </div>
+
+                <!-- Subscribe -->
+                <div class="form-group mb-1 mt-3">
+                    <input type="checkbox" class="form-check-input" formControlName="subscribe">
+                    <label for="" class="form-check-label"><strong>Subscribe to receive promotional messages</strong></label>
+                </div>
+
+                <!-- Registration button -->
+                <button class="btn btn-primary m-2" type="submit" [disabled]="registrationForm.invalid">Register</button>
+
+            </form>
+
+            <!-- Navigating to login if user have an account already -->
+            <div class="text-center pt-4 text-success">
+                <p><strong>Already have an account? Proceed to login</strong></p>
+                <button class="btn btn-primary m-3" type="button" (click)="login()">Login</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-3 mx-auto text-success text-center my-5 afterRegistration" *ngIf="registrationSuccess">
+
+        <h2><strong>Success</strong></h2>
+        <hr>
+        <p class="strong">You have successfully created an account.</p>
+        <p class="strong">Proceed to login</p>
+        <button class="btn btn-success" type="button" (click)="login()">Login</button>
+
+    </div>
+
+</div>
