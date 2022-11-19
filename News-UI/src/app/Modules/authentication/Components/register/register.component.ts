@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -104,23 +105,23 @@ export class RegisterComponent implements OnInit {
   // Submit form function
   submitForm(){    
     // sending register data to database
-    // this.registerService.register(this.registrationForm.value)
-    //     .subscribe(
-    //       results =>{
-    //         this.registrationSuccess=true;
-    //         console.log(results);
-    //       },
-    //       error =>{
-    //         console.log(error);
-    //         if(error instanceof HttpErrorResponse){
-    //           if(error.status === 201){
-    //             this.registered = true;                
-    //            console.log("Username already exists!");
-    //           }
-    //           ;
-    //         }
-    //       }
-    //     );
+    this.registerService.register(this.registrationForm.value)
+        .subscribe(
+          results =>{
+            this.registrationSuccess=true;
+            console.log(results);
+          },
+          error =>{
+            console.log(error);
+            if(error instanceof HttpErrorResponse){
+              if(error.status === 201){
+                this.registered = true;                
+               console.log("Username already exists!");
+              }
+              ;
+            }
+          }
+        );
 
   }
 

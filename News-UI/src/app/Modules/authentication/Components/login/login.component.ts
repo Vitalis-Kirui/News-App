@@ -36,18 +36,18 @@ export class LoginComponent implements OnInit {
 
   // login function
   login(){
-    // this.loginService.login(this.loginForm.value)
-    //     .subscribe(
-    //       data =>{
-    //         localStorage.setItem('token', data.token);
+    this.loginService.login(this.loginForm.value)
+        .subscribe(
+          data =>{
+            localStorage.setItem('token', data.token);
 
-    //         // Navigating to home page after login
-    //         this.router.navigate(['/'])
-    //       },
-    //       error =>{
-    //       console.log(error);
-    //       }
-    //     )
+            // Navigating to home page after login
+            this.router.navigate(['/'])
+          },
+          error =>{
+          console.log(error);
+          }
+        )
   }
 
   // navigating to register page
