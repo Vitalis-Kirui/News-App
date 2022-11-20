@@ -15,6 +15,22 @@ const createComment = (req, res) => {
     });
 };
 
+const getComments = (req, res) => {
+
+    Comment.find((error, comments) => {
+        if(error){
+            console.log(error);
+        }
+        else{
+            let totalComments = comments.length;
+
+            res.send({status : 200, commentsCount : totalComments, comments : comments});
+        }
+    })
+
+};
+
 module.exports = {
     createComment,
+    getComments
 }
