@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const userRoutes = require('./routes/user-routes')
 const config = require('./config/config-variables')
+const commentsRoutes = require('./routes/comment-routes');
 
 const app = express();
 
@@ -30,3 +31,6 @@ app.get('' , (req, res) =>{
 
 // using authentication routes
 app.use('/authentication' , userRoutes);
+
+// Using comments routes
+app.use('/comments', commentsRoutes);
