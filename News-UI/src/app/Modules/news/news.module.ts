@@ -6,6 +6,7 @@ import { NewsComponent } from './news.component';
 import { SportsComponent } from './Components/sports/sports.component';
 import { PoliticsComponent } from './Components/politics/politics.component';
 import { BusinessComponent } from './Components/business/business.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { BusinessComponent } from './Components/business/business.component';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     NewsRoutingModule
   ]
 })

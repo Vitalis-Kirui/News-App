@@ -5,7 +5,11 @@
 export const environment = {
   production: false,
   registerUrl:'http://localhost:3000/authentication/register',
-  loginUrl:'http://localhost:3000/authentication/login'
+  loginUrl:'http://localhost:3000/authentication/login',
+  topHeadingsUrl:'',
+  sporstUrl:'',
+  businessUrl:'',
+  politicsUrl:'',
 };
 
 /*
