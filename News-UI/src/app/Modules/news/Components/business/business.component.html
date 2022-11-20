@@ -1,1 +1,14 @@
-<p>business works!</p>
+<div class="row">
+
+    <div class="col-md-4 my-5" *ngFor="let article of businessNews">
+
+        <img src="{{article.urlToImage}}" alt="" width="100%" height="auto">
+        
+        <p><strong>{{article.title | uppercase}}</strong></p>
+        <p><em>{{article.description}}</em></p>
+        <hr>
+        <p class="text-center"><strong>{{article.author}} | {{article.publishedAt | date}}</strong></p>
+
+    </div>
+
+</div>

@@ -8,7 +8,7 @@ export const environment = {
   loginUrl:'http://localhost:3000/authentication/login',
   topHeadingsUrl:'',
   sporstUrl:'',
-  businessUrl:'',
+  businessUrl:'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=41eb803dced34efbb57c4f22015c8cd7',
   politicsUrl:'',
 };
 

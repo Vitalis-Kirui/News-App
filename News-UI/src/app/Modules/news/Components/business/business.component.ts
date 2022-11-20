@@ -18,6 +18,7 @@ export class BusinessComponent implements OnInit {
         .subscribe(
           data =>{
             this.businessNews = data.articles;
+            console.log(data.articles)
           },
           error =>{
             console.log(error);
