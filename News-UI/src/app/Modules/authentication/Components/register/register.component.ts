@@ -13,7 +13,6 @@ import { passwordMatchValidator } from 'src/app/Validators/password-match';
 })
 export class RegisterComponent implements OnInit {
 
-
   // Successful registration
   registrationSuccess: boolean = false;
 
